@@ -1,7 +1,57 @@
-import string, random, 
-from userData import
+from userData import user
 from credentialData import credentialsData
 from passGen import passwordGen
+
+
+def new( name_one, name_two, email_address, pass_word  ) :
+
+    '''
+    Creates new user
+    '''
+
+    new_user = userData( name_one, name_two, email_address, pass_word ) :
+
+    return new_user
+
+def save( account ) :
+
+    '''
+    Saves new account
+    '''
+
+    account.save_account()
+
+def check( used_name, used_pass ) :
+
+    '''
+    Checks for existing user
+    '''
+
+    user_exists = user.user_login( used_name, used_pass )
+
+    return user_exists
+
+def add( account, account_name, account_pass ) :
+
+    '''
+    Adds a credential
+    '''
+
+    added_credential = credentialsData( account, account_name, account_pass )
+
+    return added_credential
+
+def save( credential ) :
+
+    '''
+    Saves credentials
+    '''
+
+    credential.save_credential()
+
+
+
+
 
 
 def menu() :
