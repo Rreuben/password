@@ -1,13 +1,41 @@
-class account:
+class credentialData :
 
     '''
-    The class for the account details
+    Creates new instances for the credential inputs
     '''
 
-    def add_account( self ) :
+    credentials = []
+
+    def __init__( self, platform, username, password ) :
+
+        self.platform = platform
+        self.username = username
+        self.password = password
+
+    def save( self ) :
 
         '''
-        A function that allows for the addtition of an account
+        Saves the account details
         '''
 
-        print( '' )
+        credentialData.credentials.append( self )
+
+    @classmethod
+
+    def display( cls ) :
+
+        '''
+        Displays the account details
+        '''
+
+        return cls.credentials
+
+    @classmethod
+
+    def delete( cls ) :
+
+        '''
+        Deletes the account details
+        '''
+
+        credentialData.credentials.remove( cls )
