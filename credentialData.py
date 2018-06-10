@@ -1,4 +1,4 @@
-class credentialData :
+class credentialsData :
 
     '''
     Creates new instances for the credential inputs

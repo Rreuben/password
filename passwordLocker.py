@@ -9,7 +9,7 @@ def new( name_one, name_two, email_address, pass_word  ) :
     Creates new user
     '''
 
-    new_user = userData( name_one, name_two, email_address, pass_word ) :
+    new_user = userData( name_one, name_two, email_address, pass_word ) 
 
     return new_user
 
@@ -128,8 +128,16 @@ def menu() :
             if log_in == True :
                 break
                 print( 'Please sign up to access this program.\n' )
-            else ;
+            else :
                 ( 'Please try the choices above' )
 
         while True :
-            print( f"Type 'a' to add a credential; type 's' to see the saved credentials  )
+            print( f"Type 'a' to add a credential; type 's' to see the saved credentials" )
+            credentials = input() .lower()
+
+            if credentials == 'a' :
+                print( 'Type the platform you wish to add ' )
+                plat_form = input()
+                print( '\n' )
+
+                prin

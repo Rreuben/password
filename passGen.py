@@ -1,8 +1,8 @@
-class passGen :
+import string, random
 
-    import string, random
+class passwordGen :
 
-    def generator( passcode ) :
+    def generate( self ) :
 
         print( 'How many digits would you like your password to have? (From 9 to 15)' )
 
