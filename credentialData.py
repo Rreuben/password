@@ -1,4 +1,4 @@
-class accountData:
+class account:
 
     '''
     The class for the account details

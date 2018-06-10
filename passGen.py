@@ -1,7 +1,6 @@
 import string, random
 
 
-
 print( 'How many digits would you like your password to have? (From 9 to 15)' )
 
 num = input()
