@@ -1,4 +1,4 @@
-class userData:
+class user:
 
     '''
     The class for the user accounts
