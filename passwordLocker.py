@@ -13,7 +13,7 @@ def new( name_one, name_two, email_address, pass_word  ) :
 
     return new_user
 
-def save( account ) :
+def save_acc( account ) :
 
     '''
     Saves new account
@@ -41,7 +41,7 @@ def add( account, account_name, account_pass ) :
 
     return added_credential
 
-def save( credential ) :
+def save_cred( credential ) :
 
     '''
     Saves credentials
@@ -49,10 +49,20 @@ def save( credential ) :
 
     credential.save_credential()
 
+def display() :
 
+    '''
+    Returns the saved credential
+    '''
 
+    return credentialsData.display()
 
+def delete_cred( credential ) :
+    '''
+    Deletes a credential
+    '''
 
+    credential.delete_credential()
 
 def menu() :
 
@@ -67,7 +77,7 @@ def menu() :
         print( "Type 'su' to create an account; type 'li' to login to existing account."  )
         account_logIn = input() .lower()
 
-        if account_logIn == 'SU' :
+        if account_logIn == 'su' :
             print( 'What\'s your first name?' )
             firstName = input()
             print( '\n' )
@@ -93,9 +103,33 @@ def menu() :
                     password = input()
                     break
                 elif pass_choice == 'g' :
-                    print( generate() )
+                    generate()
                     break
                 else :
                     print( "Please type 'c' to create a password or 'g' to generate one." )
                     break
-                
+            save_acc( new( firstName, lastName, emails, userName, password ) )
+            print( 'Created successfully!' )
+            print( f"Your username is : { userName }, and your password is : { password }" )
+            print( '\n' )
+            break
+
+        elif account_logIn == 'li' :
+            print( 'Log in to existing user:\n' )
+            print( 'Username : ' )
+            userName = input()
+            print('\n')
+
+            print( 'Password : ')
+            password = input()
+            print( '\n' )
+
+            log_in = check( user_name, user_pass )
+            if log_in == True :
+                break
+                print( 'Please sign up to access this program.\n' )
+            else ;
+                ( 'Please try the choices above' )
+
+        while True :
+            print( f"Type 'a' to add a credential; type 's' to see the saved credentials  )
