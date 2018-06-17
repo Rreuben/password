@@ -3,7 +3,7 @@ from credentialData import credentialsData
 from passGen import passwordGen
 
 
-def new( name_one, name_two, email_address, pass_word  ) :
+def new_users( name_one, name_two, email_address, pass_word  ) :
 
     '''
     Creates new user
@@ -21,7 +21,7 @@ def save_acc( account ) :
 
     account.save_account()
 
-def check( used_name, used_pass ) :
+def check_user( used_name, used_pass ) :
 
     '''
     Checks for existing user
@@ -31,7 +31,7 @@ def check( used_name, used_pass ) :
 
     return user_exists
 
-def add( account, account_name, account_pass ) :
+def add_cred( account, account_name, account_pass ) :
 
     '''
     Adds a credential
@@ -49,7 +49,7 @@ def save_cred( credential ) :
 
     credential.save_credential()
 
-def display() :
+def display_cred() :
 
     '''
     Returns the saved credential
@@ -63,6 +63,42 @@ def delete_cred( credential ) :
     '''
 
     credential.delete_credential()
+
+def generate() :
+
+    print( 'How many digits would you like your password to have? (From 9 to 15)' )
+
+    num = input()
+
+    def generatePassword( passwrd ) :
+            
+        '''
+        The password generator
+        '''
+
+        password = str( '' )
+
+        for x in range( passwrd ) :
+            x = random.randint( 0, 94 ) 
+            password += string.printable[ x ]
+        return password
+
+    if num == '9' :
+        print( 'Your new password is : ' + generatePassword( 9 ) )
+    elif num == '10' :
+        print( 'Your new password is : ' + generatePassword( 10 ) )
+    elif num == '11' :
+        print( 'Your new password is : ' + generatePassword( 11 ) )
+    elif num == '12' :
+        print( 'Your new password is : ' + generatePassword( 12 ) )
+    elif num == '13' :
+        print( 'Your new password is : ' + generatePassword( 13 ) )
+    elif num == '14' :
+        print( 'Your new password is : ' + generatePassword( 14 ) )
+    elif num == '15' :
+        print( 'Your new password is : ' + generatePassword( 15) )
+    else :
+        print( 'Please stick to the given parameters for now. Thanks :)' )
 
 def menu() :
 
@@ -133,11 +169,27 @@ def menu() :
 
         while True :
             print( f"Type 'a' to add a credential; type 's' to see the saved credentials" )
-            credentials = input() .lower()
+            user_credentials = input() .lower()
 
-            if credentials == 'a' :
+            if user_credentials == 'a' :
                 print( 'Type the platform you wish to add ' )
                 plat_form = input()
                 print( '\n' )
 
-                prin
+                print( 'Type in username for the platform' )
+                username_input = input()
+
+                print( "To create a passcode type 'c'; to generate a passcode type 'g'" )
+                pass_input = input()
+
+                while True :
+                    if pass_input == 'c' :
+                        print( 'Your passcode: ' )
+                        pass2 = input()
+                        break
+                    elif pass_input == 'g' :
+                        pass2 = generate()
+                        print( '\n' )
+                        break
+                    else :
+                        print( "Please type 'c' to create a passcode or 'g' to have one generated for you" )
