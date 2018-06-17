@@ -6,16 +6,18 @@ class user:
 
     create_account = []
 
-    def __init__( self, username, email, password, confirmPassword ) :
+    def __init__( self, firstName, lastName, username, email, password, ) :
 
         '''
         Initializes the class
         '''
 
+        self.firstName = firstName
+        self.lastName = lastName
         self.username = username
         self.email = email
         self.password = password
-        self.confirmPassword = confirmPassword
+        
 
     def save_account( self ) :
 
@@ -34,6 +36,6 @@ class user:
         '''
 
         for user in user.create_account :
-            if user.username == username and user.password == password :
+            if user.username == user_name and user.password == used_password :
                 return user
             return False

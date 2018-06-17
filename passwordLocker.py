@@ -1,6 +1,6 @@
 from userData import user
 from credentialData import credentialsData
-from passGen import passwordGen
+import string, random
 
 
 def new_users( name_one, name_two, email_address, pass_word  ) :
@@ -64,43 +64,42 @@ def delete_cred( credential ) :
 
     credential.delete_credential()
 
-# def generate() :
+def generate() :
 
-#     print( 'How many digits would you like your password to have? (From 9 to 15)' )
+    print( 'How many digits would you like your password to have? (From 9 to 15)' )
 
-#     num = input()
+    num = input()
 
-#     def generatePassword( passwrd ) :
+    def generatePassword( passwrd ) :
             
-#         '''
-#         The password generator
-#         '''
+        '''
+        The password generator
+        '''
 
-#         password = str( '' )
+        password = str( '' )
 
-#         for x in range( passwrd ) :
-#             x = random.randint( 0, 94 ) 
-#             password += string.printable[ x ]
-#         return password
+        for x in range( passwrd ) :
+            x = random.randint( 0, 94 ) 
+            password += string.printable[ x ]
+        return password
 
-#     if num == '9' :
-#         print( 'Your new password is : ' + generatePassword( 9 ) )
-#     elif num == '10' :
-#         print( 'Your new password is : ' + generatePassword( 10 ) )
-#     elif num == '11' :
-#         print( 'Your new password is : ' + generatePassword( 11 ) )
-#     elif num == '12' :
-#         print( 'Your new password is : ' + generatePassword( 12 ) )
-#     elif num == '13' :
-#         print( 'Your new password is : ' + generatePassword( 13 ) )
-#     elif num == '14' :
-#         print( 'Your new password is : ' + generatePassword( 14 ) )
-#     elif num == '15' :
-#         print( 'Your new password is : ' + generatePassword( 15) )
-#     else :
-#         print( 'Please stick to the given parameters for now. Thanks :)' )
+    if num == '9' :
+        print( 'Your new password is : ' + generatePassword( 9 ) )
+    elif num == '10' :
+        print( 'Your new password is : ' + generatePassword( 10 ) )
+    elif num == '11' :
+        print( 'Your new password is : ' + generatePassword( 11 ) )
+    elif num == '12' :
+        print( 'Your new password is : ' + generatePassword( 12 ) )
+    elif num == '13' :
+        print( 'Your new password is : ' + generatePassword( 13 ) )
+    elif num == '14' :
+        print( 'Your new password is : ' + generatePassword( 14 ) )
+    elif num == '15' :
+        print( 'Your new password is : ' + generatePassword( 15) )
+    else :
+        print( 'Please stick to the given parameters for now. Thanks :)' )
     
-#     return generate()
 def menu() :
 
     '''
@@ -108,13 +107,15 @@ def menu() :
     '''
     print('\n')
     print( 'Welcome to Pass Manager!' )
-    print( 'The program that stores all your accounts' )
+    print( 'The program that stores all your accounts!' )
+    print( '\n' )
 
     while True :
         print( "Type 'su' to create an account; type 'li' to login to existing account."  )
         account_logIn = input() .lower()
 
         if account_logIn == 'su' :
+            print( '\n' )
             print( 'What\'s your first name?' )
             firstName = input()
             print( '\n' )
@@ -140,12 +141,12 @@ def menu() :
                     password = input()
                     break
                 elif pass_choice == 'g' :
-                    generate()
+                    password = generate()
                     break
                 else :
                     print( "Please type 'c' to create a password or 'g' to generate one." )
                     break
-            save_acc( new( firstName, lastName, emails, userName, password ) )
+            save_acc( new_users( firstName, lastName, emails, userName, password) )
             print( 'Created successfully!' )
             print( f"Your username is : { userName }, and your password is : { password }" )
             print( '\n' )
@@ -176,7 +177,7 @@ def menu() :
                 print( 'Type the platform you wish to add ' )
                 plat_form = input()
                 print( '\n' )
-
+                
                 print( 'Type in username for the platform' )
                 username_input = input()
 
@@ -189,6 +190,7 @@ def menu() :
                         pass2 = input()
                         break
                     elif pass_input == 'g' :
+                        print( '\n' )
                         pass2 = generate()
                         print( '\n' )
                         break
@@ -220,5 +222,5 @@ def menu() :
                 print( '\n' )
 
 if __name__ == '__main__' :
-    main()
+    menu()
             
