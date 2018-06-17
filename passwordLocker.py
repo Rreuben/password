@@ -64,42 +64,43 @@ def delete_cred( credential ) :
 
     credential.delete_credential()
 
-def generate() :
+# def generate() :
 
-    print( 'How many digits would you like your password to have? (From 9 to 15)' )
+#     print( 'How many digits would you like your password to have? (From 9 to 15)' )
 
-    num = input()
+#     num = input()
 
-    def generatePassword( passwrd ) :
+#     def generatePassword( passwrd ) :
             
-        '''
-        The password generator
-        '''
+#         '''
+#         The password generator
+#         '''
 
-        password = str( '' )
+#         password = str( '' )
 
-        for x in range( passwrd ) :
-            x = random.randint( 0, 94 ) 
-            password += string.printable[ x ]
-        return password
+#         for x in range( passwrd ) :
+#             x = random.randint( 0, 94 ) 
+#             password += string.printable[ x ]
+#         return password
 
-    if num == '9' :
-        print( 'Your new password is : ' + generatePassword( 9 ) )
-    elif num == '10' :
-        print( 'Your new password is : ' + generatePassword( 10 ) )
-    elif num == '11' :
-        print( 'Your new password is : ' + generatePassword( 11 ) )
-    elif num == '12' :
-        print( 'Your new password is : ' + generatePassword( 12 ) )
-    elif num == '13' :
-        print( 'Your new password is : ' + generatePassword( 13 ) )
-    elif num == '14' :
-        print( 'Your new password is : ' + generatePassword( 14 ) )
-    elif num == '15' :
-        print( 'Your new password is : ' + generatePassword( 15) )
-    else :
-        print( 'Please stick to the given parameters for now. Thanks :)' )
-
+#     if num == '9' :
+#         print( 'Your new password is : ' + generatePassword( 9 ) )
+#     elif num == '10' :
+#         print( 'Your new password is : ' + generatePassword( 10 ) )
+#     elif num == '11' :
+#         print( 'Your new password is : ' + generatePassword( 11 ) )
+#     elif num == '12' :
+#         print( 'Your new password is : ' + generatePassword( 12 ) )
+#     elif num == '13' :
+#         print( 'Your new password is : ' + generatePassword( 13 ) )
+#     elif num == '14' :
+#         print( 'Your new password is : ' + generatePassword( 14 ) )
+#     elif num == '15' :
+#         print( 'Your new password is : ' + generatePassword( 15) )
+#     else :
+#         print( 'Please stick to the given parameters for now. Thanks :)' )
+    
+#     return generate()
 def menu() :
 
     '''
@@ -193,3 +194,31 @@ def menu() :
                         break
                     else :
                         print( "Please type 'c' to create a passcode or 'g' to have one generated for you" )
+                        break
+
+                save_cred( add_cred( plat_form, username_input, pass2 ) )
+                print( '\n' )
+                print( f'{ plat_form } : { user_credentials } : { pass2 }' )
+                print( '\n' )
+            elif user_credentials == 's' :
+                print( 'Enter your passcode: ' )
+                cred_pass = input()
+                print( '\n' )
+                if cred_pass == password :
+                    display_cred()
+                    print( 'Account details:\n' )
+                    for credential in display_cred() :
+                        print( f'Platform: { credenital.platform }; Your username: { credenital.username }; Your password: { credenital.password }' )
+                        print( '\n' )
+                else :
+                    print( "You currently have no saved credentials. Kindly type 'a' to add one." )
+                    print( '\n' )
+            elif user_credentials == 'e' :
+                break
+            else :
+                print( 'Invalid shortcut! Please try again.' )
+                print( '\n' )
+
+if __name__ == '__main__' :
+    main()
+            
