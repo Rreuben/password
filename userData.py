@@ -29,13 +29,13 @@ class user:
 
     @classmethod
 
-    def user_login( cls, username, password ) :
+    def user_login( cls, used_name, used_pass ) :
 
         '''
         Authentication process
         '''
 
         for user in user.create_account :
-            if user.username == user_name and user.password == used_password :
+            if user.username == used_name and user.password == used_pass :
                 return user
             return False

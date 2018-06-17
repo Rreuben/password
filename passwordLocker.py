@@ -3,13 +3,13 @@ from credentialData import credentialsData
 import string, random
 
 
-def new_users( name_one, name_two, email_address, pass_word  ) :
+def new_users( name_one, name_two, email_address, user_name, pass_word  ) :
 
     '''
     Creates new user
     '''
 
-    new_user = userData( name_one, name_two, email_address, pass_word ) 
+    new_user = user( name_one, name_two, email_address, user_name, pass_word ) 
 
     return new_user
 
@@ -84,20 +84,28 @@ def generate() :
         return password
 
     if num == '9' :
-        print( 'Your new password is : ' + generatePassword( 9 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 9 ) )
     elif num == '10' :
-        print( 'Your new password is : ' + generatePassword( 10 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 10 ) )
     elif num == '11' :
-        print( 'Your new password is : ' + generatePassword( 11 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 11 ) )
     elif num == '12' :
-        print( 'Your new password is : ' + generatePassword( 12 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 12 ) )
     elif num == '13' :
-        print( 'Your new password is : ' + generatePassword( 13 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 13 ) )
     elif num == '14' :
-        print( 'Your new password is : ' + generatePassword( 14 ) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 14 ) )
     elif num == '15' :
-        print( 'Your new password is : ' + generatePassword( 15) )
+        print( '\n' )
+        print( 'Your new password is ' + generatePassword( 15) )
     else :
+        print( '\n' )
         print( 'Please stick to the given parameters for now. Thanks :)' )
     
 def menu() :
@@ -137,7 +145,8 @@ def menu() :
 
             while True :
                 if pass_choice == 'c' :
-                    print( 'Your desired password :' )
+                    print( '\n' )
+                    print( 'Your desired password is ' )
                     password = input()
                     break
                 elif pass_choice == 'g' :
@@ -147,8 +156,8 @@ def menu() :
                     print( "Please type 'c' to create a password or 'g' to generate one." )
                     break
             save_acc( new_users( firstName, lastName, emails, userName, password) )
-            print( 'Created successfully!' )
-            print( f"Your username is : { userName }, and your password is : { password }" )
+            print( '\n' )
+            print( f"And your username is { userName }" )
             print( '\n' )
             break
 
@@ -162,7 +171,7 @@ def menu() :
             password = input()
             print( '\n' )
 
-            log_in = check( user_name, user_pass )
+            log_in = check_user( user_name, pass_word )
             if log_in == True :
                 break
                 print( 'Please sign up to access this program.\n' )
