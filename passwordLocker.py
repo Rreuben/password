@@ -27,7 +27,7 @@ def check_user( used_name, used_pass ) :
     Checks for existing user
     '''
 
-    user_exists = user.user_login( used_name, used_pass )
+    user_exists = user.user_login
 
     return user_exists
 
@@ -120,7 +120,7 @@ def menu() :
 
     while True :
         print( "Type 'su' to create an account; type 'li' to login to existing account."  )
-        account_logIn = input() .lower()
+        account_logIn = input().lower()
 
         if account_logIn == 'su' :
             print( '\n' )
@@ -161,22 +161,20 @@ def menu() :
             print( '\n' )
             break
 
-        elif account_logIn == 'li' :
-            print( 'Log in to existing user:\n' )
-            print( 'Username : ' )
-            userName = input()
-            print('\n')
+        else account_logIn == 'li' :
+            print( 'Please sign up to access this program.\n' )
+                
+            # print( 'Log in to existing user:\n' )
+            # print( 'Username : ' )
+            # userName = input()
+            # print('\n')
 
-            print( 'Password : ')
-            password = input()
-            print( '\n' )
+            # print( 'Password : ')
+            # password = input()
+            # print( '\n' )
 
-            log_in = check_user( user_name, pass_word )
-            if log_in == True :
-                break
-                print( 'Please sign up to access this program.\n' )
-            else :
-                ( 'Please try the choices above' )
+            # log_in = check_user( userName, password )
+            
 
         while True :
             print( f"Type 'a' to add a credential; type 's' to see the saved credentials" )
