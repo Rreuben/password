@@ -157,23 +157,23 @@ def menu() :
                     break
             save_acc( new_users( firstName, lastName, emails, userName, password) )
             print( '\n' )
-            print( f"And your username is { userName }" )
+            print( f"And your username is {userName}" )
             print( '\n' )
             break
 
         else account_logIn == 'li' :
             print( 'Please sign up to access this program.\n' )
                 
-            # print( 'Log in to existing user:\n' )
-            # print( 'Username : ' )
-            # userName = input()
-            # print('\n')
+            print( 'Log in to existing user:\n' )
+            print( 'Username : ' )
+            userName = input()
+            print('\n')
 
-            # print( 'Password : ')
-            # password = input()
-            # print( '\n' )
+            print( 'Password : ')
+            password = input()
+            print( '\n' )
 
-            # log_in = check_user( userName, password )
+            log_in = check_user( userName, password )
             
 
         while True :
@@ -207,7 +207,7 @@ def menu() :
 
                 save_cred( add_cred( plat_form, username_input, pass2 ) )
                 print( '\n' )
-                print( f'{ plat_form } : { user_credentials } : { pass2 }' )
+                print( f'{plat_form} : {user_credentials} : {pass2}' )
                 print( '\n' )
             elif user_credentials == 's' :
                 print( 'Enter your passcode: ' )
@@ -217,7 +217,7 @@ def menu() :
                     display_cred()
                     print( 'Account details:\n' )
                     for credential in display_cred() :
-                        print( f'Platform: { credenital.platform }; Your username: { credenital.username }; Your password: { credenital.password }' )
+                        print( f'Platform: {credenital.platform}; Your username: {credenital.username}; Your password: {credenital.password}' )
                         print( '\n' )
                 else :
                     print( "You currently have no saved credentials. Kindly type 'a' to add one." )
