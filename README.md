@@ -1,35 +1,41 @@
-# Password Locker
-#### An application that allows us to generate and store passwords for various accounts.
-#### By **Rreuben**
+# Pass Manager
 
+<p align = "center">
+    <b>By Rreuben</b>  
+</p>
 
-## Description
-This is a python based application that allows a user to create an account and generate a password for a new account.
+### Description
+This program allows a user to save accounts and their passwords. The user must create an account in order to store their credentials in the program. The program stores the user's login name, password, and credentials.
 
+***
+#### Behaviours
 
-## BDD
-- 
-- 
-- 
-- 
+    Create user account
+    Create credentials to store in the password locker
+    Display all stored credentials
+    Find a specific credential
+    Exit program
+    Take the user to the full article should they choose to read it.
 
+#### Technologies
+* Vanilla Python
 
-## Setup/Installation Requirements
-* Use the command *git clone (with the repository URL)* in the terminal or download the file.
-* Proceed to the ***Repository*** of the downloaded or cloned folder.
-* Use the terminal and run the command **python{ Your version of python. Example python3.6 } passwordLocker.py** to execute the app. 
+View the source code at [GitHub](https://github.com/Rreuben/password)
 
+#### Installation/Setup
+You need to have Python 3.6 installed to run this program.
 
-*{To Edit The Code You May Need To Use A Text Editor Like Atom or Visual Code}*
+`$ git clone <this-repository>`
 
+To run the script successfully:
 
-## Technologies Used
-This site was designed using Vanilla Python. View the source code at https://github.com/Rreuben/passwordLocker
+`$ python3.6 run.py` 
 
-## Support and contact details
+#### Support and contact details
 If you come across any problem feel free to contact me and here on the site. Or you can mail me: jreuben07@gmail.com
 
+***
 
-### License
-*{MIT License}*
-Copyright (c) 2018 **Rreuben**
+<p align = "center">
+    <a href = "https://github.com/Rreuben/password/blob/master/LICENSE">LICENSE</a>
+</p>
