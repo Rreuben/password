@@ -1,83 +1,68 @@
 '''Module containing two classes'''
-class Credential:
+class Credentials:
 
     '''
-    Creates new instances for the credential inputs
+    Class that will create new instances
     '''
 
     credentials = []
 
-    def __init__(self, platform, username, password):
+    def __init__(self, website, email, username, password):
 
-        self.platform = platform
+        self.website = website
+        self.email = email
         self.username = username
         self.password = password
 
-    def save(self):
+    def save_credentials(self):
 
         '''
-        Saves the account details
+        Saves credential objects to credentials
         '''
 
-        Credential.credentials.append(self)
+        Credentials.credentials.append(self)
 
     @classmethod
-
-    def display(cls):
+    def display_credentials(cls):
 
         '''
-        Displays the account details
+        Returns the credentials
         '''
 
         return cls.credentials
 
-    @classmethod
-
-    def delete(cls):
-
-        '''
-        Deletes the account details
-        '''
-
-        Credential.credentials.remove(cls)
-
 class User:
 
     '''
-    The class for the user accounts
+    Class that will create accounts for users
     '''
 
-    create_account = []
+    user_accounts = []
 
-    def __init__(self, firstName, lastName, username, email, password,):
+    def __init__(self, master_password):
 
         '''
         Initializes the class
         '''
 
-        self.firstName = firstName
-        self.lastName = lastName
-        self.username = username
-        self.email = email
-        self.password = password
+        self.master_password = master_password
 
     def save_account(self):
 
         '''
-        Saves new account details to create_account list
+        Saves new master password to user_accounts list
         '''
 
-        User.create_account.append(self)
+        User.user_accounts.append(self)
 
     @classmethod
-
-    def user_login(cls, used_name, used_pass):
+    def existing_user(cls, master_password):
 
         '''
         Authentication process
         '''
 
-        for user in user.create_account:
-            if user.username == used_name and user.password == used_pass:
+        for user in User.user_accounts:
+            if user.master_password == master_password:
                 return user
             return False

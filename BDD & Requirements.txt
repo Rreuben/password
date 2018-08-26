@@ -1,0 +1,21 @@
+As a user I would like:
+
+1. To create an account with my details - log in and password.
+2. Store my existing login credentials.
+3. Generate a password for a new credential/account.
+
+For further exploration;
+
+4. To be able to copy my credentials to the clipboard .
+5. To dictate how long of a password i would like to have.
+
+
+
+BDD:
+
+1. Project must contain two classes for the User data and the credential data.
+2. Project must have a way to authenticate users to see their credentials.
+3. Project must have docstrings to document your methods and functions.
+4. Project must create a test class for all your classes testing each individual method in your class.
+5. Poject must have a well-detailed README file where you must document the behavior of your app.
+6. Project must have well laid out commit messages with a minimum of 25 commits.
