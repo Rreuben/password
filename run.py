@@ -1,6 +1,8 @@
-import string, random
-from classes import User, Credentials
+#!/usr/bin/env python3.6
 
+import string, random
+from user_data import User
+from credential_data import Credentials
 
 def new_account(master_password):
 
@@ -35,7 +37,7 @@ def add_credentials(website, email, username, password):
     Function to create or add credentials for a website
     '''
 
-    credentials = Credential(website, email, username, password)
+    credentials = Credentials(website, email, username, password)
 
     return credentials
 
@@ -56,14 +58,15 @@ def display_credentials():
     return Credentials.display_credentials()
 
 def generate_password():
-
+    '''
+    Case function for the password generator
+    '''
     print('\n')
     print('How many digits would you like your password to have? (From 9 to 15)')
 
     num = input()
 
     def generate(passwrd):
-            
         '''
         The password generator
         '''
@@ -141,6 +144,7 @@ def main():
 
         elif account_logIn == 'li':
 
+            print()
             print('Master password :')
             master_password = input()
             print('\n')
@@ -149,17 +153,22 @@ def main():
             
 
             while True:
-                print(f"Type 'a' to add a credential; type 's' to see the saved credentials.")
+                print(f"Type 'a' to add a credential; type 's' to see the saved credentials; type 'e' to exit the app.")
                 user_credentials = input() .lower()
 
                 if user_credentials == 'a':
                     
                     print('Type the site you wish to add')
-                    site = input()
+                    website = input()
                     print('\n')
+
+                    print('Type in your email for the site')
+                    email = input()
+                    print('\n')
+
                 
                     print('Type in your username for the site')
-                    username_input = input()
+                    username = input()
                     print('\n')
 
                     print("To create or type in your passcode press 'c'; to generate a passcode press 'g'.")
@@ -169,50 +178,49 @@ def main():
                     while True:
                     
                         if password_input == 'c':
+                            print('\n')
                             print('Your passcode: ')
                             password = input()
                             break
 
                         elif password_input == 'g':
-                            print('\n')
-                            password = generate()
+                            password = generate_password()
                             print('\n')
                             break
                         
                         else:
                             print("Please type 'c' to create a passcode or 'g' to have one generated for you. Thanks :)")
-                            break
 
-                            save_credentials(add_credentials(website, email, username, password))
-                            print('\n')
-                            print(f'{website} : {email} : {username} : {password}')
-                            print('\n')
+                    save_credentials(add_credentials(website, email, username, password))
+                    print('\n')
+                    print(f'Credential added: {website}: {email}: {username}: {password}')
+                    print('\n')
+                    break
 
-        elif user_credentials == 's':
+                elif user_credentials == 's':
 
-            print('Enter your passcode:')
-            cred_pass = input()
-            print('\n')
-
-            if credential_password == master_password:
-                display_credentials()
-                print('Your Accounts:\n')
-
-                for credential in display_credentials():
-                    print(f'Website: {credenitals.website}; Your email: {credential.email} Your username: {credenital.username}; Your password: {credenital.password}')
+                    print('Enter your passcode:')
+                    password = input()
                     print('\n')
 
-            else:
-                print("You currently have no saved credentials. Kindly type 'a' to add one.")
-                print('\n')
+                    if password == master_password:
+                        print('Your Accounts:\n')
 
-        elif user_credentials == 'e':
-            print('Bye bye...')
-            break
+                        for credential in display_credentials():
+                            print(f'Website: {credential.website}; Your email: {credential.email} Your username: {credential.username}; Your password: {credential.password}')
+                            print('\n')
 
-        else:
-            print('Invalid shortcut! Please try again.')
-            print('\n')
+                    else:
+                        print("You currently have no saved credentials. Kindly type 'a' to add one.")
+                        print('\n')
+
+                elif user_credentials == 'e':
+                    print('Bye bye...')
+                    break
+
+                else:
+                    print('Invalid shortcut! Please try again.')
+                    print('\n')
 
 if __name__ == '__main__':
     main()
