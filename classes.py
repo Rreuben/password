@@ -1,4 +1,4 @@
-'''Module containing two classes'''
+'''Module containing the credentials data'''
 class Credentials:
 
     '''
